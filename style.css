@@ -1,394 +1,358 @@
-    html {
-      scroll-behavior: smooth;
-    }
+html {
+    scroll-behavior: smooth;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-    body {
-      background-color: #1c262f;
-      color: #fff;
-    }
+body {
+    background-color: #1c262f;
+    color: #fff;
+    overflow-x: hidden; /* Prevent horizontal scroll on small screens */
+}
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 50px;
-      background-color: #1c262f;
-    }
-
-    .logo {
-      font-size: 24px;
-      font-weight: 700;
-    }
-
-    .logo span {
-      color: #f8c200;
-    }
- nav{
-    position: fixed;
-    top: 0;         
-  left: 800px;         
-  width: 100%;     
-  background-color: #1c262f; 
-  color: white;   
-  padding: 15px 0; 
-  z-index: 1000;   
- }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 30px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: #fff;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #f8c200;
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: start;
-      justify-content: center;
-      min-height: 90vh;
-      padding: 50px;
-      background-color: #1c262f;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      font-weight: 700;
-      line-height: 1.2;
-    }
-
-    .hero h3 {
-      margin: 10px 0;
-      font-size: 22px;
-      font-weight: 300;
-    }
-
-    .hero p {
-      margin-top: 10px;
-      font-size: 18px;
-      max-width: 600px;
-    }
-
-    .hero .cta {
-      margin-top: 30px;
-      padding: 10px 30px;
-      background-color: #f8c200;
-      color: black;
-      font-weight: 600;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-    }
-
-    .socials {
-      position: fixed;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
-
-    .socials a {
-      color: #fff;
-      font-size: 20px;
-      text-decoration: none;
-      background: #2d3842;
-      padding: 10px;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
-
-    .socials a:hover {
-      background: #f8c200;
-      color: #1c262f;
-    }
-
-    @media screen and (max-width: 600px) {
-  .project-card, .skills-container, .hero {
-    width: 95%;
-    font-size: 16px;
-  }
-
-  header nav ul {
-    flex-direction: column;
+/* Header and Navigation */
+header {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-  }
+    padding: 20px 50px;
+    background-color: #1c262f;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
 }
-    /* Timeline styles */
-    .timeline {
-      max-width: 800px;
-      margin: 50px auto;
-      padding: 20px;
-      position: relative;
-      text-align: center;
-    }
 
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 50%;
-      width: 2px;
-      height: 100%;
-      transform: translateX(-50%);
-    }
+.logo {
+    font-size: 24px;
+    font-weight: 700;
+}
 
-    .timeline-item {
-      display: flex;
-      justify-content: space-between;
-      margin: 30px 0;
-    }
+.logo span {
+    color: #f8c200;
+}
 
-    .timeline-item .left,
-    .timeline-item .right {
-      width: 45%;
-    }
+nav {
+    position: static; /* Remove fixed positioning for desktop nav to make it easier to manage on mobile */
+    top: auto;
+    left: auto;
+    width: auto;
+    background-color: transparent; /* Reset for desktop */
+    color: white;
+    padding: 0;
+    z-index: auto;
+}
 
-    .timeline-item .left {
-      text-align: right;
-    }
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
 
-    .timeline-item .dot {
-      width: 10px;
-      height: 10px;
-      background-color: #f8c200;
-      border-radius: 50%;
-      position: relative;
-      top: 10px;
-      left: -5px;
-    }
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s;
+}
 
-    .timeline-item .left h3,
-    .timeline-item .right h3 {
-      margin: 5px 0;
-      font-size: 16px;
-      color: #f8c200;
-      letter-spacing: 1px;
-    }
+nav ul li a:hover {
+    color: #f8c200;
+}
 
-    .timeline-item .left p,
-    .timeline-item .right p {
-      margin: 2px 0;
-    }
+/* Hero Section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Changed from start to flex-start for consistency */
+    justify-content: center;
+    min-height: 90vh;
+    padding: 50px 20px; /* Adjusted padding for better mobile appearance */
+    background-color: #1c262f;
+    text-align: left; /* Ensure text alignment is consistent */
+}
 
-    @media (max-width: 768px) {
-      .timeline::before {
-        left: 10px;
-      }
+.hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    word-wrap: break-word; /* Prevent long words from overflowing */
+}
 
-      .timeline-item {
-        flex-direction: column;
-        text-align: left;
-      }
+.hero h3 {
+    margin: 10px 0;
+    font-size: 22px;
+    font-weight: 300;
+}
 
-      .timeline-item .left,
-      .timeline-item .right {
-        width: 100%;
-      }
+.hero p {
+    margin-top: 10px;
+    font-size: 18px;
+    max-width: 600px;
+    line-height: 1.6; /* Improve readability */
+}
 
-      .timeline-item .left {
-        margin-bottom: 15px;
-      }
-    }
+.hero .cta {
+    margin-top: 30px;
+    padding: 10px 30px;
+    background-color: #f8c200;
+    color: black;
+    font-weight: 600;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none; /* Ensure the link inside button is styled */
+    display: inline-block; /* Allows padding to work correctly */
+}
+
+.hero .cta a {
+    color: black; /* Ensure link text is black */
+    text-decoration: none;
+}
+
+/* Socials - Consider if you need these fixed on mobile, might obscure content */
+.socials {
+    position: fixed;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 900; /* Ensure it's below chat but above content */
+}
+
+.socials a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    background: #2d3842;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.socials a:hover {
+    background: #f8c200;
+    color: #1c262f;
+}
+
+/* Timeline styles (Education section) */
+.timeline {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    position: relative;
+    text-align: center; /* This inline style in HTML is better here */
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background-color: #f8c200; /* Added color for visibility */
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    align-items: center; /* Vertically align items */
+}
+
+.timeline-item .left,
+.timeline-item .right {
+    width: 45%;
+}
+
+.timeline-item .left {
+    text-align: right;
+}
+
+.timeline-item .dot {
+    width: 10px;
+    height: 10px;
+    background-color: #f8c200;
+    border-radius: 50%;
+    position: relative;
+    top: 0; /* Adjusted to be centered */
+    left: 0; /* Adjusted to be centered */
+    align-self: center; /* Center dot vertically in flex container */
+    flex-shrink: 0; /* Prevent dot from shrinking */
+}
+
+.timeline-item .left h3,
+.timeline-item .right h3 {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #f8c200;
+    letter-spacing: 1px;
+}
+
+.timeline-item .left p,
+.timeline-item .right p {
+    margin: 2px 0;
+}
+
+/* Skills Section */
 .skills-section {
-  padding: 50px 20px;
-  color: white;
-  background-color: 2d3842;
+    padding: 50px 20px;
+    color: white;
+    background-color: #1c262f; /* Corrected background color */
 }
-
 
 .section-title {
-  color: #f8c200;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  margin-left: -1100px;
-  text-align: center;
-}
-
-.section-title1{
     color: #f8c200;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  text-align: center;
-
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center; /* Removed fixed margin-left */
 }
 
-.skills-container, .soft-skills-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding-left: 20px;
-  text-align: left;
+.section-title1 { /* For Projects Title */
+    color: #f8c200;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center; /* Removed fixed margin-left */
+}
+
+.skills-container,
+.soft-skills-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 0; /* Removed padding-left that pushed content too far */
+    text-align: left;
 }
 
 .skill-category {
-  margin-bottom: 15px;
-  display: flex;
-   flex-wrap: nowrap;
-  align-items: flex-start;
+    margin-bottom: 15px;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    align-items: flex-start;
 }
 
 .category-label {
-  font-weight: bold;
-  display: inline-block;
-  width: 200px;
+    font-weight: bold;
+    display: inline-block;
+    width: 200px; /* Consider reducing on mobile */
+    min-width: 150px; /* Ensure it has a minimum width */
 }
 
 .skill-list {
-  display: inline-block;
+    display: inline-block;
+    flex: 1; /* Allow skill list to take remaining space */
 }
 
 .soft-skill {
-  display: block;
-  margin: 5px 0;
+    display: inline-block; /* Changed to inline-block for better flow */
+    margin: 5px 10px 5px 0; /* Add some spacing between skills */
+    padding: 5px 10px;
+    background-color: #2d3842; /* Add a background for better visual separation */
+    border-radius: 5px;
 }
 
-.category-label1{
-    display: block;
-    margin-bottom: 8px;
-    font-size: 1.1em;
-    text-align:center;
-}
+/* Projects Section */
 .projects-container {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: column; /* Stack projects vertically by default */
+    gap: 40px;
+    margin-top: 20px;
+    max-width: 900px; /* Limit width for better readability */
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 20px; /* Add horizontal padding */
 }
 
 .project-card {
-  background-color: #2d3842;
-  padding: 24px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  transition: transform 0.3s ease;
+    background-color: #2d3842;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+    text-align: left; /* Ensure text inside card is left-aligned */
 }
 
 .project-card:hover {
-  transform: scale(1.02);
+    transform: scale(1.02);
 }
 
 .project-title {
-  font-size: 1.5em;
-  color: white;
-  margin-bottom: 12px;
+    font-size: 1.5em;
+    color: white;
+    margin-bottom: 12px;
 }
 
 .project-description {
-  font-size: 1em;
-  margin-bottom: 15px;
-  color: #ddd;
+    font-size: 1em;
+    margin-bottom: 15px;
+    color: #ddd;
 }
 
 .tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 20px; /* Space below tags */
 }
 
 .tech-tags span {
-  background-color: #1c262f;
-  padding: 6px 12px;
-  border-radius: 20px;
-  color: white;
-  font-size: 0.9em;
-  border: 1px solid #f8c200;
+    background-color: #1c262f;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.9em;
+    border: 1px solid #f8c200;
 }
+
 .project-link {
-  display: inline-block;
-  padding: 8px 16px;
-  background-color: #f8c200;
-  color: #1c262f;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 20px;
-  transition: background 0.3s;
-  margin-top: 10px;
-  margin-bottom: 20px;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #f8c200;
+    color: #1c262f;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: background 0.3s;
+    margin-top: 10px;
+    margin-bottom: 0; /* Removed extra bottom margin */
 }
 
 .project-link:hover {
-  background-color: #e0b000;
+    background-color: #e0b000;
 }
+
+/* Contact Me Section */
+#contactme {
+    padding: 50px 20px; /* Add padding for better spacing */
+    text-align: center;
+}
+
+#contactme h2 {
+    color: #f8c200;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+#contactme p {
+    margin-top: 10px;
+    line-height: 1.5; /* Improve readability */
+}
+
+#contactme a {
+    color: white;
+    text-decoration: underline;
+}
+
+#contactme a:hover {
+    color: #f8c200;
+}
+
+/* Chat Button and Box */
 .chat-button {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 30px;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.chat-box {
-  position: fixed;
-  bottom: 90px;
-  right: 30px;
-  width: 300px;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #aaa;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  padding: 15px;
-}
-
-.chat-header {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.chat-box textarea {
-  width: 100%;
-  height: 80px;
-  margin-bottom: 10px;
-  padding: 10px;
-  resize: none;
-}
-
-.chat-box button[type="submit"] {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 8px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-}
-
-.hidden {
-  display: none;
-}
-
-.chat-response {
-  margin-top: 10px;
-  font-size: 14px;
-  color: green;
-}
-
-  .chat-button {
     position: fixed;
     bottom: 30px;
     right: 30px;
@@ -399,8 +363,10 @@
     border-radius: 30px;
     cursor: pointer;
     z-index: 1000;
-  }
-  .chat-box {
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.chat-box {
     position: fixed;
     bottom: 90px;
     right: 30px;
@@ -412,20 +378,26 @@
     display: flex;
     flex-direction: column;
     padding: 15px;
-  }
-  .chat-header {
+    color: #333; /* Ensure text inside chat box is readable */
+}
+
+.chat-header {
     font-weight: bold;
     margin-bottom: 10px;
     color: #f8c200;
-  }
-  .chat-box textarea {
+}
+
+.chat-box textarea {
     width: 100%;
     height: 80px;
     margin-bottom: 10px;
     padding: 10px;
     resize: none;
-  }
-  .chat-box button[type="submit"] {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.chat-box button[type="submit"] {
     background-color: #007bff;
     color: white;
     border: none;
@@ -433,12 +405,223 @@
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-  }
-  .hidden {
+}
+
+.hidden {
     display: none;
-  }
-  .chat-response {
+}
+
+.chat-response {
     margin-top: 10px;
     font-size: 14px;
     color: green;
-  }
+}
+
+
+/* --- Mobile Responsiveness Media Queries --- */
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column; /* Stack logo and nav */
+        align-items: center;
+        padding: 15px 20px;
+    }
+
+    nav {
+        margin-top: 15px;
+        position: static; /* Ensure nav is not fixed */
+        width: 100%;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack nav items */
+        gap: 15px;
+        width: 100%;
+        text-align: center;
+        padding: 0;
+    }
+
+    .hero {
+        padding: 30px 20px; /* Reduce padding for smaller screens */
+        min-height: auto; /* Allow hero section to shrink */
+        text-align: center; /* Center content in hero section */
+        align-items: center; /* Center content horizontally */
+    }
+
+    .hero h1 {
+        font-size: 36px; /* Smaller font size for mobile */
+    }
+
+    .hero h3 {
+        font-size: 18px; /* Smaller font size for mobile */
+    }
+
+    .hero p {
+        font-size: 16px; /* Smaller font size for mobile */
+        max-width: 100%; /* Allow text to take full width */
+    }
+
+    .socials {
+        position: static; /* Remove fixed position for socials on mobile */
+        flex-direction: row; /* Display horizontally */
+        justify-content: center;
+        margin-top: 20px;
+        transform: translateY(0); /* Reset transform */
+        width: 100%;
+        padding: 0 20px;
+        box-sizing: border-box;
+    }
+
+    .socials a {
+        padding: 8px;
+        font-size: 18px;
+    }
+
+    /* Timeline (Education) adjustments */
+    .timeline {
+        margin: 30px auto;
+        padding: 10px;
+    }
+
+    .timeline::before {
+        left: 50%; /* Keep vertical line centered */
+    }
+
+    .timeline-item {
+        flex-direction: column; /* Stack items vertically */
+        text-align: center; /* Center content */
+        margin: 20px 0;
+    }
+
+    .timeline-item .left,
+    .timeline-item .right {
+        width: 100%;
+        text-align: center; /* Center text */
+    }
+
+    .timeline-item .left {
+        margin-bottom: 10px; /* Space between date and details */
+    }
+
+    .timeline-item .dot {
+        display: none; /* Hide dot for stacked layout, or style it differently */
+    }
+
+    .section-title, .section-title1 {
+        font-size: 1.8rem; /* Smaller title font size */
+        margin-bottom: 15px;
+    }
+
+    .skills-container, .soft-skills-container {
+        padding: 0 10px; /* Add horizontal padding */
+    }
+
+    .skill-category {
+        flex-direction: column; /* Stack label and list */
+        align-items: center;
+        text-align: center;
+    }
+
+    .category-label {
+        width: 100%; /* Full width for label */
+        margin-bottom: 5px; /* Space between label and list */
+    }
+
+    .skill-list {
+        text-align: center;
+        width: 100%; /* Full width for list */
+    }
+
+    .soft-skill {
+        margin: 5px; /* Adjust margin for better spacing when stacked */
+    }
+
+    .projects-container {
+        padding: 0 15px; /* Adjust padding for projects */
+    }
+
+    .project-card {
+        padding: 20px; /* Adjust card padding */
+    }
+
+    .project-title {
+        font-size: 1.3em;
+    }
+
+    .project-description {
+        font-size: 0.95em;
+    }
+
+    .tech-tags span {
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+
+    .project-link {
+        font-size: 0.9em;
+        padding: 7px 14px;
+    }
+
+    .chat-button {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .chat-box {
+        bottom: 70px; /* Adjust position based on button size */
+        right: 20px;
+        width: 280px; /* Slightly smaller chat box */
+        padding: 10px;
+    }
+}
+
+/* Further adjustments for very small screens (e.g., old phones) */
+@media (max-width: 480px) {
+    header {
+        padding: 10px;
+    }
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero h3 {
+        font-size: 16px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .hero .cta {
+        padding: 8px 25px;
+        font-size: 0.9em;
+    }
+
+    .timeline-item .left h3,
+    .timeline-item .right h3 {
+        font-size: 14px;
+    }
+
+    .timeline-item .left p,
+    .timeline-item .right p {
+        font-size: 0.9em;
+    }
+
+    .chat-box {
+        width: 250px; /* Even smaller chat box */
+        right: 15px;
+        bottom: 60px;
+    }
+
+    .chat-button {
+        right: 15px;
+        bottom: 15px;
+    }
+}
