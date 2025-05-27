@@ -148,15 +148,6 @@ nav ul li a:hover {
     text-align: center; /* This inline style in HTML is better here */
 }
 
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 50%;
-    width: 2px;
-    height: 100%;
-    background-color: #f8c200; /* Added color for visibility */
-    transform: translateX(-50%);
-}
 
 .timeline-item {
     display: flex;
